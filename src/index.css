@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* New Design Tokens */
+    --bg-start: 220 91% 32%; /* #1e3a8a */
+    --bg-end: 260 85% 62%; /* #7c3aed */
+    --accent: 213 94% 68%; /* #60a5fa */
+    --surface: 0 0% 100% / 0.06; /* rgba(255,255,255,0.06) */
+    --surface-border: 0 0% 100% / 0.12; /* rgba(255,255,255,0.12) */
+    --chip-bg: 0 0% 100% / 0.12; /* rgba(255,255,255,0.12) */
+    
+    /* Text colors */
+    --text-primary: 0 0% 100%; /* #ffffff */
+    --text-secondary: 0 0% 100% / 0.85; /* rgba(255,255,255,0.85) */
+
+    /* Background & Foreground */
+    --background: 0 0% 100%;
+    --foreground: 220 15% 15%;
+
+    /* Card colors */
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 15%;
+
+    /* Primary Brand Colors - Blue to Purple gradient */
+    --primary-blue: 220 91% 32%; /* #1e3a8a */
+    --primary-purple: 260 85% 62%; /* #7c3aed */
+    --primary: 220 91% 32%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary colors */
+    --secondary: 220 15% 97%;
+    --secondary-foreground: 220 15% 15%;
+
+    /* Muted colors */
+    --muted: 220 15% 97%;
+    --muted-foreground: 220 10% 45%;
+
+    /* Accent colors */
+    --accent-color: 213 94% 68%;
+    --accent-foreground: 220 15% 15%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--bg-start)) 0%, hsl(var(--bg-end)) 100%);
+    --gradient-radial-overlay: radial-gradient(600px 400px at 20% 15%, rgba(255,255,255,0.08), transparent);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--bg-start)), hsl(var(--bg-end)));
+    --gradient-text: linear-gradient(135deg, hsl(var(--accent-color)), hsl(var(--bg-end)));
+    --gradient-glass: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 25px -4px hsl(var(--primary-blue) / 0.15);
+    --shadow-card: 0 10px 30px rgba(0,0,0,0.25);
+    --shadow-glow: 0 0 30px hsl(var(--accent-color) / 0.3);
+
+    /* Borders & Inputs */
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 85% 62%;
+
+    /* Radius */
+    --radius: 1rem;
+
+    /* Destructive colors */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Popover colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 15%;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Sidebar colors */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 15% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 220 15% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 220 15% 10%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary-blue: 220 85% 65%;
+    --primary-purple: 260 85% 65%;
+    --primary: 220 85% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 220 15% 20%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 220 85% 65%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-manrope;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+    position: relative;
+  }
+  
+  .bg-gradient-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-radial-overlay);
+    pointer-events: none;
+  }
+  
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-glass {
+    background: var(--gradient-glass);
+  }
+  
+  .bg-surface {
+    background: hsl(var(--surface));
+    border: 1px solid hsl(var(--surface-border));
+    backdrop-filter: blur(10px);
+  }
+  
+  .bg-chip {
+    background: hsl(var(--chip-bg));
+    border: 1px solid hsl(var(--surface-border));
+  }
+  
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .text-primary-white {
+    color: hsl(var(--text-primary));
+  }
+  
+  .text-secondary-white {
+    color: hsl(var(--text-secondary));
+  }
+  
+  .text-accent {
+    color: hsl(var(--accent-color));
+  }
+  
+  .border-surface {
+    border-color: hsl(var(--surface-border));
+  }
+}
