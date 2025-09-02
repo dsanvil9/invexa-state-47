@@ -6,7 +6,7 @@ const PricingSection = () => {
   const plans = [
     {
       name: "Starter",
-      price: "desde 1.490 €",
+      price: "desde 1.490 € + 290 €/mes",
       features: [
         "1 flujo + 1 canal (webchat o WhatsApp)",
         "Base de conocimiento + RAG",
@@ -19,7 +19,7 @@ const PricingSection = () => {
     },
     {
       name: "Pro",
-      price: "desde 3.400 €",
+      price: "desde 3.400 € + 590 €/mes",
       features: [
         "2–3 flujos y canales",
         "Multi-agente y orquestación",
